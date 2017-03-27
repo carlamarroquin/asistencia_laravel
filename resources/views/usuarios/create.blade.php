@@ -13,11 +13,21 @@
 	Email:<br/>
 		<input type="email" name="email" class="form-control">
 	Departamento:<br/>
-		<input type="text" name="depto" class="form-control">
+		<select name="depto" class="form-control">
+			<option value="0"></option>
+			@foreach ($deptos as $depto)
+            <option value="{{$depto->id_depto}}">{!!$depto->departamento!!}</option>
+			@endforeach
+		</select>
 	Usuario:<br/>
 		<input type="text" name="usuario" class="form-control">
 	Tipo de Usuario:<br/>
-		<input type="text" name="tipo" class="form-control">
+		<select name="tipo" class="form-control">
+			<option value="0"></option>
+			@foreach($tipos as $tipo)
+             <option value="{{$tipo->id_tipousuario}}">{!!$tipo->tipo!!}</option>  
+			@endforeach
+		</select>
 	Contraseña:<br/>
 		<input type="password" name="password" class="form-control">
         <br/>
