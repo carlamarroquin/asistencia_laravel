@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('masterindex');
 });
 
 Route::get('/inicio', function () {
@@ -31,3 +31,13 @@ Route::get('/usuario', [
 ]);*/
 
 Route::resource('user','UsuarioController');
+
+Route::post('/update', [
+    'as'=>'actualizar.docente',
+    'uses'=>'UsuarioController@update'
+]);
+
+Route::get('/dt-row-data',[
+	 		'as' => 'dt.row.data.docentes',
+			'uses' => 'UsuarioController@getDataRowsDocentes'
+	 	]);	

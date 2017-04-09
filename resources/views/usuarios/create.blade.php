@@ -1,9 +1,9 @@
-@extends('master')
+@extends('masterindex')
 
 @section('content')
 
-
 <div>
+
 <h1>CREAR USUARIO</h1>
 {!!Form::open(['route'=>'user.store', 'method'=>'POST'])!!}
 	Nombres:
