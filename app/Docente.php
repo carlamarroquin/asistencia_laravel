@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Docente extends Model
 {
-	protected $table="docente";
-
-    protected $fillable=['id_docente','id_usuario','id_depto', 'nombre','apellidos','email','estado'];
+	protected $table='docente';
+    protected $primarykey='id_docente';
+    protected $fillable=['id_usuario','id_depto', 'nombre','apellidos','email','estado'];
     public $timestamps=false;
 
     public static function getDocentes(){
@@ -17,6 +17,11 @@ class Docente extends Model
 
     }
 
+
+    public static function getDocenteActualizar($id){
+       return DB::table('docente')->where('id_docente',$id)->get();
+
+    }    
 
     public static function getUsuarioDocente($id){
     	return DB::table('usuario as u')
@@ -28,7 +33,15 @@ class Docente extends Model
     }
 
     public static function getDocente($id){
-    	return DB::table('docente')->where('id_docente',$id)->get();
+    	return DB::table('docente as d')
+                    ->join('usuario as u','d.id_usuario','=','u.id_usuario')
+                    ->join('departamento as dp','d.id_depto','=','dp.id_depto')
+                    ->join('tipo_usuario as tu','u.tipo','=','tu.id_tipousuario')
+                    ->select('d.*','u.usuario', 'u.password','tu.id_tipousuario')
+                    ->where('d.id_docente',$id)
+                    ->get();
     	
     }
+
+      
 }

@@ -41,7 +41,6 @@ class UsuarioController extends Controller
 
     public function getDataRowsDocentes(){
         $users=Docente::getDocentes();
-
         return Datatables::of($users)->make(true);
         
     }
@@ -62,17 +61,17 @@ class UsuarioController extends Controller
     }
 
     public function update(Request $request){
-        $docente=Docente::find($request->idDocente);
-        $docente->id_depto=$request->id_depto;
-        $docente->nombre=$request->nombre;
-        $docente->apellidos=$request->apellidos;
-        $docente->email=$request->email;
-        $docente->estado=$request->estado;
+
+        $docente=Docente::getDocenteActualizar($request['idDocente']);
+        $docente[0]->id_depto=$request->depto;
+        $docente[0]->nombre=$request->nombre;
+        $docente[0]->apellidos=$request->apellidos;
+        $docente[0]->email=$request->email;
+        $docente[0]->estado=$request->estado;
         $docente->save();
+        dd($docente);
 
         $usuario=Docente::getUsuarioDocente();
-        dd($usuario);
-
 
     }
 }

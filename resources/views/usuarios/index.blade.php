@@ -1,8 +1,7 @@
 @extends('masterindex')
 
 @section('css')
-   <link href="plugins/datatable/css/bootstrap.datatable.min.css" rel="stylesheet">
-<!-{!! Html::style('plugins/datatable/css/bootstrap.datatable.min.css') !!}-->
+{!! Html::style('plugins/datatable/css/bootstrap.datatable.min.css') !!}
 @endsection
 
 @section('content')

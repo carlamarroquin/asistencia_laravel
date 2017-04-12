@@ -24,13 +24,15 @@ Route::get('/usuario', [
     'as'=>'usuario',
     'uses'=>'MainController@getCrearUsuario'
 ]);
-/*
-Route::get('/usuario', [
-    'as'=>'usuario',
-    'uses'=>'MainController@getCrearUsuario'
-]);*/
+
 
 Route::resource('user','UsuarioController');
+
+/*Route::get('user/{id}/', [
+    'as'=>'user.edit',
+    'uses'=>'UsuarioController@edit'
+]); */
+
 
 Route::post('/update', [
     'as'=>'actualizar.docente',
