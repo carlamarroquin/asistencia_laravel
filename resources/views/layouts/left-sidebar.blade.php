@@ -43,6 +43,11 @@
                                     <span>Nuevo Usuario</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{route('consultar.docentes')}}">
+                                    <span>Consultar Usuario</span>
+                                </a>
+                            </li>
                         </ul> 
                     </li>
             </div>

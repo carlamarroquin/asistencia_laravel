@@ -30,7 +30,7 @@ class UsuarioController extends Controller
         'email'=>$request['email']
         ]);
         //Session::flash('Usuario creado con exito');
-        return redirect::to('/usuario');
+        return redirect::route('nuevo.usuario');
     }
 
     public function create(){
@@ -45,6 +45,7 @@ class UsuarioController extends Controller
     }
 
     public function index(){
+
         $docentes=Docente::getDocentes();
         $data['docentes']=$docentes;
         return view('usuarios.index',$data);
@@ -73,14 +74,16 @@ class UsuarioController extends Controller
     }
 
     public function update(Request $request){
-
-        $docente=Docente::getDocenteActualizar($request['idDocente']);
+        $docente=Docente::find($request['idDocente']);
+         
+        //$docente=Docente::getDocenteActualizar($request['idDocente']);
+        
         $docente[0]->id_depto=$request->depto;
         $docente[0]->nombre=$request->nombre;
         $docente[0]->apellidos=$request->apellidos;
         $docente[0]->email=$request->email;
         $docente[0]->estado=$request->estado;
-        $docente[0]->save();
+        
         dd($docente);
 
         $usuario=Docente::getUsuarioDocente();
@@ -93,7 +96,7 @@ class UsuarioController extends Controller
         DB::table('docente')->where('id_docente',$id)->delete();
         DB::table('usuario')->where('id_usuario',$user[0]->id_usuario)->delete();
         
-        return redirect('user');
+        return redirect::route('consultar.docentes');
 
     }
 

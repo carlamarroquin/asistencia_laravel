@@ -11,7 +11,8 @@
                 </h2>
             </div>
             <div class="body">
-                <form method="post" action="{{route('crear.usuario')}}" >
+                <form method="post" action="{{route('crear.usuario')}}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <label for="email_address">Nombres:</label>
                     <div class="form-group">
                         <div class="form-line">
