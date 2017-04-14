@@ -13,7 +13,11 @@ class Docente extends Model
     public $timestamps=false;
 
     public static function getDocentes(){
-       return DB::table('docente as doc')->where('estado',1)->get();
+       return DB::table('docente as doc')
+                ->join('departamento as depto','doc.id_depto','=','depto.id_depto')
+                ->select('doc.*','depto.departamento')    
+                ->where('doc.estado',1)   
+                ->get();
 
     }
 

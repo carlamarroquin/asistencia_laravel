@@ -8,6 +8,7 @@ use App\Docente;
 use DB;
 use Session;
 use Exception;
+use Redirect;
 use Yajra\Datatables\Facades\Datatables;
 
 
@@ -28,7 +29,7 @@ class UsuarioController extends Controller
         'apellidos'=>$request['apellidos'],
         'email'=>$request['email']
         ]);
-        Session::flash('Usuario creado con exito');
+        //Session::flash('Usuario creado con exito');
         return redirect::to('/usuario');
     }
 
@@ -68,10 +69,21 @@ class UsuarioController extends Controller
         $docente[0]->apellidos=$request->apellidos;
         $docente[0]->email=$request->email;
         $docente[0]->estado=$request->estado;
-        $docente->save();
+        $docente[0]->save();
         dd($docente);
 
         $usuario=Docente::getUsuarioDocente();
 
     }
+
+    public function show($id){
+        $user=Docente::getUsuarioDocente($id);
+        
+        DB::table('docente')->where('id_docente',$id)->delete();
+        DB::table('usuario')->where('id_usuario',$user[0]->id_usuario)->delete();
+        
+        return redirect('user');
+
+    }
+
 }

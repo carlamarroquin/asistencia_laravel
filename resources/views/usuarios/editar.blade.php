@@ -3,7 +3,7 @@
 @section('content')
 
  <div class="block-header">
-           
+
 {!!Form::open(['route'=>'actualizar.docente', 'method'=>'POST'])!!}
     <input type="hidden" name="idDocente" value="{{$docente[0]->id_docente}}">
 

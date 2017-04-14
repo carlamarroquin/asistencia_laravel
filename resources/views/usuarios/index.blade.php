@@ -23,9 +23,11 @@
 
             <th>{{$doc->nombre}}</th>
             <th>{{$doc->email}}</th>
-            <th>{{$doc->id_depto}}</th>
+            <th>{{$doc->departamento}}</th>
 
-            <td> {!!link_to_route('user.edit', 'Editar',$parameters=$doc->id_docente, $attributes = ['class'=>'btn btn-warning'])!!}</td>
+            <td> {!!link_to_route('user.edit', 'Editar',$parameters=$doc->id_docente, $attributes = ['class'=>'btn btn-warning'])!!}
+            {!!link_to_route('user.destroy', 'Eliminar',$parameters=$doc->id_docente, $attributes = ['class'=>'btn btn-danger'])!!}</td>
+      
 			
         </tbody>
         	@endforeach

@@ -5,6 +5,7 @@
 <div>
 
 <h1>CREAR USUARIO</h1>
+
 {!!Form::open(['route'=>'user.store', 'method'=>'POST'])!!}
 	Nombres:
     	<input type="text" name="nombre" class="form-control">
