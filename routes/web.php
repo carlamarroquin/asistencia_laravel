@@ -10,6 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+foreach (new DirectoryIterator(__DIR__.'/Routes') as $file)
+{
+    if (!$file->isDot() && !$file->isDir() && $file->getFilename() != '.gitignore')
+    {
+        require_once __DIR__.'/Routes/'.$file->getFilename();
+        //require_once __DIR__.'/Routes/'.$file->getFilename();
+    }
+}
+
 
 Route::get('/', function () {
     return view('masterindex');
@@ -19,27 +28,3 @@ Route::get('/inicio', function () {
     return view('master');
 });
 
-
-Route::get('/usuario', [
-    'as'=>'usuario',
-    'uses'=>'MainController@getCrearUsuario'
-]);
-
-
-Route::resource('user','UsuarioController');
-
-/*Route::get('user/{id}/', [
-    'as'=>'user.edit',
-    'uses'=>'UsuarioController@edit'
-]); */
-
-
-Route::post('/update', [
-    'as'=>'actualizar.docente',
-    'uses'=>'UsuarioController@update'
-]);
-
-Route::get('/dt-row-data',[
-	 		'as' => 'dt.row.data.docentes',
-			'uses' => 'UsuarioController@getDataRowsDocentes'
-	 	]);	

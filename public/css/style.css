@@ -7825,6 +7825,15 @@ fieldset[disabled] .form-control {
   .five-zero-zero .five-zero-zero-container .button-place {
     margin-top: 32px; }
 
+/* FOOTER */
+.footer {
+    z-index: 1020;
+    padding: 10px 0;
+    margin: 0 25px 0 245px;
+    border-top: 1px solid #CAD0D6;
+    line-height: 20px
+}
+/* FOOTER  ---------*/
 /* Maps ======================================== */
 /* Google Maps */
 .gmap {
