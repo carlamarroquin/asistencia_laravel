@@ -20,10 +20,13 @@ foreach (new DirectoryIterator(__DIR__.'/Routes') as $file)
 }
 
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('masterindex');
-});
-
+});*/
+Route::get('/',[
+            'as'    => 'ver.marcacion',
+            'uses'  => 'marcacionController@create'
+        ]);
 Route::get('/inicio', function () {
     return view('master');
 });

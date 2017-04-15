@@ -13,14 +13,14 @@
             <div class="body">
                 <form method="post" action="{{route('crear.usuario')}}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <label for="email_address">Nombres:</label>
+                    <label for="nombre">Nombres:</label>
                     <div class="form-group">
                         <div class="form-line">
                             <input type="text" name="nombre" id="nombre" class="form-control">
                         </div>
                     </div>
 
-                    <label for="email_address">Apellidos:</label>
+                    <label for="apellidos">Apellidos:</label>
                     <div class="form-group">
                         <div class="form-line">
                             <input type="text" name="apellidos" class="form-control">
@@ -34,18 +34,16 @@
                         </div>
                     </div>
 					
-					<label for="email_address">Departamento:</label>
-                    <div class="form-group">
-                        <div class="form-line">
-                            <select name="depto" class="form-control">
+					<label for="depto">Departamento:</label>
+                    <div class="form-group ">
+                            <select name="depto" class="form-control show-tick">
 								<option value="0"></option>
 									@foreach ($deptos as $depto)
 						            <option value="{{$depto->id_depto}}">{!!$depto->departamento!!}</option>
 									@endforeach
 							</select>
-                        </div>
                     </div>
-					
+						 
 					<label for="email_address">Usuario:</label>
                     <div class="form-group">
                         <div class="form-line">

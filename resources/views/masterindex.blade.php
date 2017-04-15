@@ -99,13 +99,14 @@
 
     {!!Html::script('plugins/jquery/jquery.min.js')!!}
     {!!Html::script('plugins/bootstrap/js/bootstrap.js')!!}
-    {!!Html::script('plugins/bootstrap-select/js/bootstrap-select.js')!!}
     {!!Html::script('plugins/jquery-slimscroll/jquery.slimscroll.js')!!}
     {!!Html::script('plugins/node-waves/waves.js')!!}
     
     {!!Html::script('js/admin.js')!!}
     
     <!-- Jquery Core Js 
+    {!!Html::script('plugins/bootstrap-select/js/bootstrap-select.js')!!}
+    
     <script src="plugins/jquery/jquery.min.js"></script>
      Bootstrap Core Js 
     <script src="plugins/bootstrap/js/bootstrap.js"></script>
