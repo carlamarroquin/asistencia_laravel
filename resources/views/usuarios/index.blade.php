@@ -6,6 +6,13 @@
 
 @section('content')
 
+@if(Session::has('message'))
+<div class="alert alert-success" role="alert" style="width: 100%; margin-top: 100px; ">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    {{Session::get('message')}}
+</div>
+@endif
+
 <div class="table-responsive">
     <table class="table table-striped table-hover" id="dt-docente" style="font-size:13px;" width="100%">
         <thead class="the-box dark full">

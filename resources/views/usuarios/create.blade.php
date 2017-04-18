@@ -2,6 +2,15 @@
 
 @section('content')
 
+@if(Session::has('message'))
+<div class="alert alert-success" role="alert" style="width: 100%; margin-top: 100px; ">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    {{Session::get('message')}}
+</div>
+@endif
+
+
+
 <div class="row clearfix">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">

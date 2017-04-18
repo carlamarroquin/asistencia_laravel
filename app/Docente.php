@@ -9,7 +9,7 @@ class Docente extends Model
 {
 	
     protected $table='docente';
-    protected $primarykey='id_docente';
+    protected $primaryKey='id_docente';
     
     protected $fillable=['id_usuario','id_depto', 'nombre','apellidos','email','estado'];
     public $timestamps=false;
