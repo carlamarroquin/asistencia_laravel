@@ -9,6 +9,6 @@ class Marcacion extends Model
     protected $table='marcacion';
     protected $primarykey='idMarcacion';
     protected $fillable=['idDocente','fecha', 'marcacion','tipo'];
-    protected $timestamps='true';
+    public $timestamps='true';
 
 }

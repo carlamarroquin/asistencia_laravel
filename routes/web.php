@@ -20,14 +20,16 @@ foreach (new DirectoryIterator(__DIR__.'/Routes') as $file)
 }
 
 
-/*Route::get('/', function () {
-    return view('masterindex');
-});*/
+Route::get('/', ['as' => 'doLogin', 'uses' => 'MainController@getLogin']);   
+Route::post('/login',['as' => 'postLogin', 'uses' => 'MainController@postLogin']);  
+Route::get('/logout', 'MainController@getLogout'); 
+Route::get('/inicio',['middleware' => ['auth'],'as' => 'doInicio', 'uses' => 'MainController@index']);
+
+
+/*
 Route::get('/',[
             'as'    => 'ver.marcacion',
             'uses'  => 'marcacionController@create'
         ]);
-Route::get('/inicio', function () {
-    return view('master');
-});
+*/
 

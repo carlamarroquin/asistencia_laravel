@@ -9,10 +9,20 @@ class Docente extends Model
 {
 	
     protected $table='docente';
-    protected $primarykey='id_docente';
+    protected $primaryKey='id_docente';
     
     protected $fillable=['id_usuario','id_depto', 'nombre','apellidos','email','estado'];
     public $timestamps=false;
+
+    
+    public function marcaciones(){
+        return $this->hasMany('App\Marcacion', 'idDocente', 'id_docente');
+    }
+
+     public function usuario()
+    {
+        return $this->belongsTo('App\User','id','id_usuario');
+    }
 
     public static function getDocentes(){
        return DB::table('docente as doc')

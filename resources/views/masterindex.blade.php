@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+    <title>Control de Asistencia</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -18,6 +18,7 @@
     {!!Html::style('plugins/animate-css/animate.css')!!}
     {!!Html::style('css/style.css')!!}
     {!!Html::style('css/themes/all-themes.css')!!}
+    @yield('css')
     <!-- Bootstrap Core Css 
     <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
@@ -83,7 +84,7 @@
             </div>
           @yield('content')
         </div>
-        <!-- Footer -->
+        <!-- Footer 
         <footer>
             <div class="legal" id="footer" align="center">
                 <div class="copyright">
@@ -94,6 +95,7 @@
                 </div>
             </div>
         </footer>
+        -->
             <!-- #Footer -->
     </section>
 
@@ -104,8 +106,8 @@
     
     {!!Html::script('js/admin.js')!!}
     
+    @yield('js')
     <!-- Jquery Core Js 
-    {!!Html::script('plugins/bootstrap-select/js/bootstrap-select.js')!!}
     
     <script src="plugins/jquery/jquery.min.js"></script>
      Bootstrap Core Js 
