@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 {{-- MENSAJE ERROR VALIDACIONES --}}
 @if($errors->any())
     <div class="alert alert-warning square fade in alert-dismissable">
@@ -31,6 +32,7 @@
         Algo ha salido mal. {{ Session::get('msnError') }}
     </div>
 @endif
+
 
 <div class="row clearfix">
 

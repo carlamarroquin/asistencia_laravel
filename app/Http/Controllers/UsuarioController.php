@@ -32,8 +32,11 @@ class UsuarioController extends Controller
         'apellidos'=>$request['apellidos'],
         'email'=>$request['email']
         ]);
+
         
         return redirect::route('nuevo.usuario')->with('msnExito', 'Nueva Usuario ingresado exitosamente!');
+
+
     }
 
     public function create(){
@@ -79,19 +82,23 @@ class UsuarioController extends Controller
 
     public function update(Request $request){
         $docente=Docente::find($request['idDocente']);
+        $usuario=Usuario::find($docente->id_usuario);
+
+        $docente->id_depto=$request->depto;
+        $docente->nombre=$request->nombre;
+        $docente->apellidos=$request->apellidos;
+        $docente->email=$request->email;
+        $docente->estado=$request->estado;
+        $docente->save();
          
-        //$docente=Docente::getDocenteActualizar($request['idDocente']);
+        $usuario->usuario=$request->usuario;
+        $usuario->password=$request->password;
+        $usuario->tipo=$request->tipo;
+        $usuario->estado=$request->estado;
+        $usuario->save();
+        Session::flash('message','Usuario actualizado correctamente');
         
-        $docente[0]->id_depto=$request->depto;
-        $docente[0]->nombre=$request->nombre;
-        $docente[0]->apellidos=$request->apellidos;
-        $docente[0]->email=$request->email;
-        $docente[0]->estado=$request->estado;
-        
-        dd($docente);
-
-        $usuario=Docente::getUsuarioDocente();
-
+        return redirect::route('consultar.docentes');
     }
 
     public function show($id){
