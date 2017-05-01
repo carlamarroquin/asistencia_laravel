@@ -8,6 +8,8 @@ use Auth;
 use App\Docente;
 use App\Marcacion;
 use Session;
+use Datatables;
+
 class marcacionController extends Controller
 {
     public function createMarcacion(Request $request){
@@ -36,5 +38,22 @@ class marcacionController extends Controller
 
     }
 
+    public function AllMarcaciones(){
+        return view('marcacion.marcacionesdt');
+    }
 
+    public function getDataRowsMarcaciones()
+    {
+        $marcaciones=Marcacion::getMarcaciones();
+        return Datatables::of($marcaciones)
+        ->addColumn('tipoMarcacion',function($dt){
+            if($dt->tipo==0){
+                return '<span class="label label-primary">Entrada</span>';
+            }
+            else{
+                return '<span class="label label-success">Salida</span>';   
+            }
+        })
+        ->make(true);
+    }
 }

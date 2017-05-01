@@ -8,4 +8,14 @@ Route::group(['prefix' => 'docentes', 'middleware' => ['auth']], function(){
 			'uses' 	=> 'marcacionController@createMarcacion'
 	 	]);
 
+	Route::get('/all-marcaciones',[
+			'as' 	=> 'all.marcacion',
+			'uses' 	=> 'marcacionController@AllMarcaciones'
+	 	]);
+
+	Route::get('/getmarcaciones',[
+			'as' 	=> 'get.all.marcaciones',
+			'uses' 	=> 'marcacionController@getDataRowsMarcaciones'
+	 	]);
+
 });

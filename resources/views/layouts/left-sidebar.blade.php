@@ -46,7 +46,7 @@
                         </ul> 
                     </li>
                     <li >
-                        <a href="{{url('/')}}">
+                        <a href="{{route('all.marcacion')}}">
                             <i class="material-icons">query_builder</i>
                             <span>Marcaciones</span>
                         </a>

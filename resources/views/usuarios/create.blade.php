@@ -14,7 +14,7 @@
                 <li  class="alert-link">{{ $error }}</li>
             @endforeach
         </ul>
-    </div>
+    </div>  
 @endif
 {{-- MENSAJE DE EXITO --}}
 @if(Session::has('msnExito'))
