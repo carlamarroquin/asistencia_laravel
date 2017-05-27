@@ -18,6 +18,8 @@
     {!!Html::style('plugins/animate-css/animate.css')!!}
     {!!Html::style('css/style.css')!!}
     {!!Html::style('css/themes/all-themes.css')!!}
+    {!!Html::style('plugins/datatable/css/bootstrap.datatable.min.css')!!}
+
     <!-- Bootstrap Core Css 
     <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
@@ -101,6 +103,9 @@
     {!!Html::script('plugins/bootstrap/js/bootstrap.js')!!}
     {!!Html::script('plugins/jquery-slimscroll/jquery.slimscroll.js')!!}
     {!!Html::script('plugins/node-waves/waves.js')!!}
+
+{!!Html::script('plugins/datatable/js/jquery.dataTables.min.js') !!}
+{!!Html::script('plugins/datatable/js/bootstrap.datatable.js') !!}
     
     {!!Html::script('js/admin.js')!!}
     

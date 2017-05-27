@@ -1,7 +1,6 @@
 @extends('masterindex')
 
 @section('css')
-{!! Html::style('plugins/datatable/css/bootstrap.datatable.min.css') !!}
 @endsection
 
 @section('content')
@@ -13,20 +12,20 @@
 </div>
 @endif
 
-<div class="table-responsive">
-    <table class="table table-striped table-hover" id="dt-docente" style="font-size:13px;" width="100%">
+  <div class="table-responsive">
+    <table class="table table-striped table-hover" id="tr-pry" style="font-size:13px;" width="100%">
         <thead class="the-box dark full">
           <tr>
             <th>Corelativo</th>
   		  		<th>Nombre</th>
   		  		<th>email</th>
   		  		<th>Departamento</th>
-  		  		<th>Opciones</th>
+  		  		
           </tr>
         </thead>
         	@foreach($docentes as $doc)
         <tbody>
-            <th>{{$doc->id_docente}}</th>
+         <!--   <th>{{$doc->id_docente}}</th>
 
             <th>{{$doc->nombre}}</th>
             <th>{{$doc->email}}</th>
@@ -35,7 +34,7 @@
             <td> {!!link_to_route('usuarios.edit', 'Editar',$parameters=$doc->id_docente, $attributes = ['class'=>'btn btn-warning'])!!}
             {!!link_to_route('usuarios.destroy', 'Eliminar',$parameters=$doc->id_docente, $attributes = ['class'=>'btn btn-danger'])!!}</td>
       
-			
+			-->
         </tbody>
         	@endforeach
     </table>
@@ -43,14 +42,14 @@
  @endsection
 
 @section('js')
-<!--Html::script('plugins/datatable/js/jquery.dataTables.min.js') !!}
-{!! Html::script('plugins/datatable/js/bootstrap.datatable.js') !!}-->
-  <script src="plugins/datatable/js/jquery.dataTables.min.js"></script>
-  <script src="plugins/datatable/js/bootstrap.datatable.js"></script>
+<!--<script src="plugins/datatable/js/jquery.dataTables.min.js"></script>
+  <script src="plugins/datatable/js/bootstrap.datatable.js"></script>-->
+  {!!Html::script('plugins/datatable/js/jquery.dataTables.min.js') !!}
+{!!Html::script('plugins/datatable/js/bootstrap.datatable.js') !!}
 
 <script>
 
-$( document ).ready(function(){
+$(document).ready(function(){
    var table = $('#dt-docente').DataTable({
         filter: true,
         serverSide: true,
@@ -59,14 +58,12 @@ $( document ).ready(function(){
         columns: [
 
 
-            {data: 'idDocente', name: 'doc.idDocente'},
+            {data: 'id_docente', name: 'doc.id_docente'},
             {data: 'nombre', name: 'doc.nombre'},
             {data: 'email', name: 'doc.email'},
-            {data: 'depto', name: 'doc.depto'}
+            {data: 'departamento', name: 'doc.departamento'}
             //{data: 'fechaCreacion', name: 'pry.fechaCreacion'},
             //{data: 'eliminar', name: 'eliminar',orderable: false, searchable: false}
-
-
         ],
 
 

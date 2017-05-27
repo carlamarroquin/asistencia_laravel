@@ -48,6 +48,7 @@ class UsuarioController extends Controller
     public function index(){
 
         $docentes=Docente::getDocentes();
+
         $data['docentes']=$docentes;
         return view('usuarios.index',$data);
 
@@ -55,6 +56,7 @@ class UsuarioController extends Controller
 
     public function getDataRowsDocentes(){
         $users=Docente::getDocentes();
+        
         return Datatables::of($users)->make(true);
         
     }
