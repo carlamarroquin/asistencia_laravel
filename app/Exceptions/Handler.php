@@ -5,7 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-
+use Auth;
 class Handler extends ExceptionHandler
 {
     /**
@@ -42,9 +42,13 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+    public function render($request, Exception $e)
     {
-        return parent::render($request, $exception);
+        //return parent::render($request, $exception);
+        /*if ($e instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException && !Auth::check()) 
+        {    return redirect()->route('doLogin');
+        }*/
+        return parent::render($request, $e);
     }
 
     /**
@@ -60,6 +64,6 @@ class Handler extends ExceptionHandler
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
-        return redirect()->guest('login');
+        return redirect()->guest('/');
     }
 }

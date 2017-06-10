@@ -14,6 +14,16 @@ class Docente extends Model
     protected $fillable=['id_usuario','id_depto', 'nombre','apellidos','email','estado'];
     public $timestamps=false;
 
+    
+    public function marcaciones(){
+        return $this->hasMany('App\Marcacion', 'idDocente', 'id_docente');
+    }
+
+     public function usuario()
+    {
+        return $this->belongsTo('App\User','id','id_usuario');
+    }
+
     public static function getDocentes(){
        return DB::table('docente as doc')
                 ->join('departamento as depto','doc.id_depto','=','depto.id_depto')

@@ -1,10 +1,12 @@
 <?php
-Route::group(['prefix' => 'administrador' ], function(){
+Route::group(['prefix' => 'administrador', 'middleware' => ['auth']], function(){
 	/*
 		Ruta para el proceso ingreso y visualización de restricciones de laboratorios nacionales
 	*/	
 	Route::group(['prefix' => 'usuarios'], function(){
+		
 		Route::resource('usuarios','UsuarioController');		
+		
 		Route::get('/nuevo',[
 			'as' 	=> 'nuevo.usuario',
 			'uses' 	=> 'UsuarioController@create'

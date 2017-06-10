@@ -7706,7 +7706,9 @@ fieldset[disabled] .form-control {
 
 /* Login Page ================================== */
 .login-page {
-  background-color: #00BCD4;
+  background: url(https://newevolutiondesigns.com/images/freebies/city-wallpaper-18.jpg) no-repeat fixed;
+  background-size: cover;
+  background-position: 50%;
   padding-left: 0;
   max-width: 360px;
   margin: 5% auto;

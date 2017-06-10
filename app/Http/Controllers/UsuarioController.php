@@ -10,31 +10,37 @@ use Session;
 use Exception;
 use Redirect;
 use Yajra\Datatables\Facades\Datatables;
-
-
+use App\Http\Requests\UsuarioRequest;
+use Auth;
+use Hash;
 class UsuarioController extends Controller
 {
-    public function store(Request $request){
+    public function store(UsuarioRequest $request){
+        
         Usuario::create([
-        'usuario'=>$request['usuario'],
-        'password'=>$request['password'],
-        'tipo'=>$request['tipo']
+        'usuario'   =>$request['usuario'],
+        'password'  =>Hash::make($request->password),
+        'tipo'      =>$request['tipo'],
+        'correo'    =>$request['email']
         ]);
         
-        $user=DB::table('usuario')->orderBy('id_usuario','desc')->first();
+        $user=DB::table('usuario')->orderBy('id','desc')->first();
         Docente::create([
         'id_depto'=>$request['depto'],
-        'id_usuario'=>$user->id_usuario,
+        'id_usuario'=>$user->id,
         'nombre'=>$request['nombre'],
         'apellidos'=>$request['apellidos'],
         'email'=>$request['email']
         ]);
-        Session::flash('message','Usuario creado correctamente');
+
         
-        return redirect::route('nuevo.usuario');
+        return redirect::route('nuevo.usuario')->with('msnExito', 'Nueva Usuario ingresado exitosamente!');
+
+
     }
 
     public function create(){
+
         $deptos=DB::table('departamento')
                 ->where('estado','=','1')->get();
 

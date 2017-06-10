@@ -3,17 +3,41 @@
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
-
+use Auth;
 class MainController extends Controller
 {
-    public function getCrearUsuario(){
-    	$deptos=DB::table('departamento')
-    	        ->where('estado','=','1')->get();
+    public function getLogin(){
 
-    	$tipos=DB::table('tipo_usuario')
-    			->where('estado','=','1')->get();
-    	$data['deptos']=$deptos;
-    	$data['tipos']=$tipos;
-    	return view('usuarios.create',$data);
+		//Verificamos si ya esta logueado de lo contrario se redirige al login
+		if(Auth::check()){
+			return view('inicio.index'); 
+		}else{
+			return view('login.login1'); 	
+		}
     }
+
+    public function postLogin(Request $request) {  
+    	//dd($request->all());
+        if(Auth::attempt(['usuario'=>$request['username'], 'password'=>$request['password']])){
+  			
+  			return redirect()->route('doInicio');
+  		}
+  		else{
+  			return redirect()->route('doLogin')->withErrors(['errors' => 'Usuario y/o Contraseña Invalidos!']);
+  		}
+    }  
+    public function getLogout()
+	{
+		//Deslogueamos al usuario
+		Auth::logout();
+		//Redireccion a ruta inicial
+		return redirect()->route('doLogin');
+	}
+	
+    public function index()
+	{
+		
+		return view('inicio.index');
+
+	}  
 }
