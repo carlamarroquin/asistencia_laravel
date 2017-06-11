@@ -63,9 +63,13 @@ class UsuarioController extends Controller
     public function getDataRowsDocentes(){
         $users=Docente::getDocentes();
         
-        return Datatables::of($users)->make(true);
-        
+        return Datatables::of($users)
+        ->addColumn('editar', function($dt){
+            return '<a href="'.route('editar.usuario',['id_docente'=>$dt->id_docente]).'" class="btn btn-xs btn btn-danger btn-perspective">Editar</a>';})
+        ->make(true);
     }
+        
+    
 
     public function edit($id){
         $deptos=DB::table('departamento')
@@ -112,5 +116,6 @@ class UsuarioController extends Controller
         return redirect::route('consultar.docentes');
 
     }
+
 
 }

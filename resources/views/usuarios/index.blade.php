@@ -13,28 +13,20 @@
 @endif
 
   <div class="table-responsive">
-    <table class="table table-striped table-hover" id="tr-pry" style="font-size:13px;" width="100%">
+    <table class="table table-striped table-hover" id="docentes" style="font-size:13px;" width="100%">
         <thead class="the-box dark full">
           <tr>
             <th>Corelativo</th>
   		  		<th>Nombre</th>
-  		  		<th>email</th>
+  		  		<th>Apellidos</th>
   		  		<th>Departamento</th>
+            <th>Opciones</th>
   		  		
           </tr>
         </thead>
         	@foreach($docentes as $doc)
         <tbody>
-         <!--   <th>{{$doc->id_docente}}</th>
-
-            <th>{{$doc->nombre}}</th>
-            <th>{{$doc->email}}</th>
-            <th>{{$doc->departamento}}</th>
-
-            <td> {!!link_to_route('usuarios.edit', 'Editar',$parameters=$doc->id_docente, $attributes = ['class'=>'btn btn-warning'])!!}
-            {!!link_to_route('usuarios.destroy', 'Eliminar',$parameters=$doc->id_docente, $attributes = ['class'=>'btn btn-danger'])!!}</td>
-      
-			-->
+         
         </tbody>
         	@endforeach
     </table>
@@ -50,9 +42,10 @@
 <script>
 
 $(document).ready(function(){
-   var table = $('#dt-docente').DataTable({
+   var table = $('#docentes').DataTable({
         filter: true,
         serverSide: true,
+        searchable:true,
 
         ajax: '{!! route('dt.row.data.docentes') !!}',
         columns: [
@@ -60,9 +53,9 @@ $(document).ready(function(){
 
             {data: 'id_docente', name: 'doc.id_docente'},
             {data: 'nombre', name: 'doc.nombre'},
-            {data: 'email', name: 'doc.email'},
-            {data: 'departamento', name: 'doc.departamento'}
-            //{data: 'fechaCreacion', name: 'pry.fechaCreacion'},
+            {data: 'apellidos', name: 'doc.apellidos'},
+            {data: 'departamento', name: 'doc.departamento'},
+            {data: 'editar', name: 'editar'}
             //{data: 'eliminar', name: 'eliminar',orderable: false, searchable: false}
         ],
 

@@ -19,6 +19,8 @@
             </div>
             <div class="body">
                 <form method="post" id="marcacionFrm" class="form-inline" action="{{route('nueva.marcacion')}}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    
                 <div class="row">
                       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="input-group">

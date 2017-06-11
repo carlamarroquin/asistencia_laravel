@@ -20,10 +20,11 @@ foreach (new DirectoryIterator(__DIR__.'/Routes') as $file)
 }
 
 
+Route::get('/pdf', ['middleware' => ['auth'], 'as' => 'pdf', 'uses' => 'PdfController@invoice']);
 Route::get('/', ['as' => 'doLogin', 'uses' => 'MainController@getLogin']);   
 Route::post('/login',['as' => 'postLogin', 'uses' => 'MainController@postLogin']);  
 Route::get('/logout', 'MainController@getLogout'); 
-Route::get('/inicio',['middleware' => ['auth'],'as' => 'doInicio', 'uses' => 'MainController@index']);
+Route::get('/inicio', ['middleware' => ['auth'], 'as' => 'doInicio', 'uses' => 'MainController@index']);
 
 
 /*

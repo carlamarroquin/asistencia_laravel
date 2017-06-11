@@ -51,6 +51,13 @@
                             <span>Marcaciones</span>
                         </a>
                     </li>
+
+                    <li >
+                        <a href="{{route('pdf')}}">
+                            <i class="material-icons">query_builder</i>
+                            <span>Reporte</span>
+                        </a>
+                    </li>
             </div>
             <!-- #Menu -->
 

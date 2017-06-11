@@ -61,6 +61,7 @@ $( document ).ready(function(){
         filter: true,
         serverSide: true,
         
+        
         ajax: '{!! route('get.all.marcaciones') !!}',
         columns: [  
             

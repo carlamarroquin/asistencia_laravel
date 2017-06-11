@@ -32,6 +32,10 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['auth']], function()
 			 		'as' => 'dt.row.data.docentes',
 					'uses' => 'UsuarioController@getDataRowsDocentes'
 		]);	
+		Route::get('/editar/{id}/',[
+			 		'as' => 'editar.usuario',
+					'uses' => 'UsuarioController@edit'
+		]);	
 
 	});
 });
