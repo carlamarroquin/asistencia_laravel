@@ -52,10 +52,22 @@
                         </a>
                     </li>
 
-                    <li >
+                    <li>
                         <a href="{{route('pdf')}}">
                             <i class="material-icons">query_builder</i>
                             <span>Reporte</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('reporteMarcacion')}}">
+                            <i class="material-icons">query_builder</i>
+                            <span>Reporte por empleado</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('asistencias')}}">
+                            <i class="material-icons">query_builder</i>
+                            <span>Reporte de asistencias</span>
                         </a>
                     </li>
             </div>

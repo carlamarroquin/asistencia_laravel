@@ -17,5 +17,7 @@ Route::group(['prefix' => 'docentes', 'middleware' => ['auth']], function(){
 			'as' 	=> 'get.all.marcaciones',
 			'uses' 	=> 'marcacionController@getDataRowsMarcaciones'
 	 	]);
+	
+	
 
 });

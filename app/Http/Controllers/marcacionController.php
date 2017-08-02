@@ -57,3 +57,4 @@ class marcacionController extends Controller
         ->make(true);
     }
 }
+

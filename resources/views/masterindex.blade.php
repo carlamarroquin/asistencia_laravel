@@ -18,12 +18,16 @@
     {!!Html::style('plugins/animate-css/animate.css')!!}
     {!!Html::style('css/style.css')!!}
     {!!Html::style('css/themes/all-themes.css')!!}
-<<<<<<< HEAD
     {!!Html::style('plugins/datatable/css/bootstrap.datatable.min.css')!!}
-
-=======
+    {!!Html::style('bootstrap-daterangepicker/daterangepicker.css')!!}
+  
+  {!!Html::style('bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')!!}
+ {!!Html::style('bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css')!!}
+ {!!Html::style('clockpicker/dist/bootstrap-clockpicker.min.css')!!}
+ 
+    
+  
     @yield('css')
->>>>>>> 19829d56407395c3667d94d4a5c9c7e88a45833a
     <!-- Bootstrap Core Css 
     <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
@@ -113,8 +117,16 @@
 {!!Html::script('plugins/datatable/js/bootstrap.datatable.js') !!}
     
     {!!Html::script('js/admin.js')!!}
-    
-    @yield('js')
+    {!!Html::script('bootstrap-daterangepicker/daterangepicker.js') !!}
+   {!!Html::script('bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') !!}
+   {!!Html::script('js/forms-pickers.js')!!}
+   
+   {!!Html::script('bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js')!!}
+   {!!Html::script('clockpicker/dist/jquery-clockpicker.min.js')!!}
+    {!!Html::script('moment/moment.js')!!}
+         
+
+      @yield('js')
     <!-- Jquery Core Js 
     
     <script src="plugins/jquery/jquery.min.js"></script>
