@@ -45,7 +45,7 @@ class Marcacion extends Model
     }
 
     public static function getHorasTrabajadas(){
-        return DB::table('asistencia.horas_trab AS vw')
+        return DB::table('asistencia.vw_horas_trab AS vw')
         ->select('vw.id_docente','vw.nombre', DB::raw("DAYOFWEEK(vw.fecha) as indexDia"),
             DB::raw("(CASE WHEN DAYOFWEEK(vw.fecha)=1 THEN 'D'
                           WHEN DAYOFWEEK(vw.fecha)=2 THEN 'L'

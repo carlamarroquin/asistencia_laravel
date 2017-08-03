@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Marcacion;
+use App\Docente;
+use DB;
 use PDF;
 use Datetime;
 use Illuminate\Http\Request;
- 	
+use App\Http\Controllers\CalendarController; 	
 use Carbon\Carbon;
 
 class PdfController extends Controller
@@ -77,6 +79,7 @@ class PdfController extends Controller
 	public function getCalendario(){
 		$data=['title'=>'Generar Reporte de Marcación',
 				'subtitle'=>''];
+		
 		return view('reportes.asistenciasCalendario');		
 	}
 

@@ -46,7 +46,7 @@
 			header: {
 				left: 'today prev,next',
 				center: 'title',
-				right: 'timelineMonth,timelineYear'
+				right: 'agendWeek,timelineMonth'
 			},
 			defaultView: 'timelineMonth',
 			
@@ -54,14 +54,16 @@
 			resourceAreaWidth: '20%',
 			resourceLabelText: 'Docentes',
 			resources: { 
-            	url: '{!! route('getResources') !!}',
+            	url: '{!! route('resources') !!}',
 				type: 'GET',
-                data:
-            	{id_docente:'id_docente', docente:'docente'}	
+                	
 			},
-			events: [
+			events:  { 
+            	url: '{!! route('events') !!}',
+				type: 'GET',
+                	
+			}
 				
-			]
 		});
 	
 	});
