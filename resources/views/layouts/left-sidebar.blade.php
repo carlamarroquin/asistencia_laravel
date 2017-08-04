@@ -28,6 +28,14 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{route('mis.marcaciones')}}">
+                            <i class="material-icons">query_builder</i>
+                                <span>Mis Marcaciones</span>
+                            </a>
+                    </li>
+                    @if(Auth::user()->tipo==2)
+                    <li style="display: none;">
+                    @endif
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">person_add</i>
                             <span>Control de Usuarios</span>
@@ -45,31 +53,42 @@
                             </li>
                         </ul> 
                     </li>
-                    <li >
-                        <a href="{{route('all.marcacion')}}">
-                            <i class="material-icons">query_builder</i>
-                            <span>Marcaciones</span>
-                        </a>
+                    @if(Auth::user()->tipo==2)
+                    <li style="display: none;">
+                    @endif
+                      <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">person_add</i>
+                            <span>REPORTES</span>
+                      </a>
+                      <ul class="ml-menu">
+                        
+                            <li>
+                                <a href="{{route('all.marcacion')}}">
+                                    <i class="material-icons">query_builder</i>
+                                    <span>Marcaciones</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('reporteAsis')}}">
+                                    <i class="material-icons">query_builder</i>
+                                    <span>Reporte Asistencias</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('reporteMarcacion')}}">
+                                    <i class="material-icons">query_builder</i>
+                                    <span>Reporte por empleado</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('asistencias')}}">
+                                    <i class="material-icons">query_builder</i>
+                                    <span>Reporte de asistencias</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
-                    <li>
-                        <a href="{{route('pdf')}}">
-                            <i class="material-icons">query_builder</i>
-                            <span>Reporte</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{route('reporteMarcacion')}}">
-                            <i class="material-icons">query_builder</i>
-                            <span>Reporte por empleado</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{route('asistencias')}}">
-                            <i class="material-icons">query_builder</i>
-                            <span>Reporte de asistencias</span>
-                        </a>
-                    </li>
             </div>
             <!-- #Menu -->
 

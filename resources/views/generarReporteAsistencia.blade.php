@@ -8,24 +8,14 @@
         <div class="card">
       		  <div class="header">
                 <h2>
-                   REPORTE DE MARCACI&Oacute;N
+                   REPORTE DE ASISTENCIA
                 </h2>
               </div>
 
 			<div class="body">
- 				<form  action="{{route('pdf')}}" method="POST">
+ 				<form  action="{{route('asistenciaPdf')}}" method="POST">
           <div class="form-group row">
                 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    	<div class="col-xs-8">
-                      <label for="nombre">Docente:</label>
-		                            <select class="form-control" name="docente">
-                                 <option value="" disabled selected>Seleccione un docente...</option>
-                                @foreach($docentes as $d)
-                                  <option value="{{$d->id_docente}}">{!!$d->docente!!}</option>
-                                  @endforeach
-                                </select>
-		                        
-		                    </div>
                   <div class="col-xs-8">
                     <label>Periodo</label>
                     <div class="input-daterange input-group" id="date-range">      

@@ -30,11 +30,12 @@ class UsuarioController extends Controller
         'id_usuario'=>$user->id,
         'nombre'=>$request['nombre'],
         'apellidos'=>$request['apellidos'],
+        'tipo_docente'=>$request['tipo_docente'],
         'email'=>$request['email']
         ]);
 
         
-        return redirect::route('nuevo.usuario')->with('msnExito', 'Nueva Usuario ingresado exitosamente!');
+        return redirect::route('nuevo.usuario')->with('msnExito', 'Nuevo Usuario ingresado exitosamente!');
 
 
     }
@@ -94,6 +95,7 @@ class UsuarioController extends Controller
         $docente->nombre=$request->nombre;
         $docente->apellidos=$request->apellidos;
         $docente->email=$request->email;
+        $docente->tipo_docente=$request->tipo_docente;
         $docente->estado=$request->estado;
         $docente->save();
          

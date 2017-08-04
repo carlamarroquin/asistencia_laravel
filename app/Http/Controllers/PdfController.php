@@ -56,6 +56,13 @@ class PdfController extends Controller
 	  $marcacion=Marcacion::getMarcacionesDocente($request->docente,$inicio,$fin);
       return $marcacion;
 	}
+	public function getReporteAsistencias(){
+		$data=['title'=>'Generar Reporte de Marcación',
+				'subtitle'=>''];
+				
+		return view('reportes.generarReporteAsistencia',$data);
+
+	}
 
 	public function reporteAsistencias(){
 		$data=$this->getAsistencias();
@@ -69,22 +76,9 @@ class PdfController extends Controller
 		return $pdf->stream('pruebapdf.pdf');
 	}
 
-	public function getAsistencias(){
-
-		return $asistencias=Marcacion::getHorasTrabajadas(); // reporte de vista de horas trabajadas
-		//dd($asistencias);
-	}
+	
+	
 
 	
-	public function getCalendario(){
-		$data=['title'=>'Generar Reporte de Marcación',
-				'subtitle'=>''];
-		
-		return view('reportes.asistenciasCalendario');		
-	}
-
-	public function getDocentesResources(){
-	  return $docentes=Marcacion::getDocentes();
-	}
 
 }

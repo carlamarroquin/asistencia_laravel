@@ -65,7 +65,7 @@
                 </div>
                 <div class="row">
 
-                      <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
+                      <div class="col-lg-4 col-md-4 col-sm-10 col-xs-12">
                         <label for="email_address">Correo:</label>
                         <div class="form-group">
                             <div class="form-line">
@@ -84,6 +84,18 @@
     							</select>
                         </div>
                       </div>
+                      <div class="col-lg-4 col-md-4 col-sm-10 col-xs-12">   
+                            <label for="email_address">Tipo de Docente:</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <select name="tipo_docente" class="form-control" required>
+                                        <option value="0">Tiempo Completo</option>
+                                        <option value="1">Medio Completo</option>
+                                        <option value="2">Tiempo Completo</option>                            
+                                    </select>
+                                </div>
+                            </div>
+                          </div>
     				</div> 
                     <div class="row">
                           <div class="col-lg-4 col-md-4 col-sm-10 col-xs-12">  

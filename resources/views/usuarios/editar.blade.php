@@ -7,6 +7,7 @@
         <div class="card">
 			     <div class="body">
               <form method="post" action="{{route('actualizar.docente')}}" class="form-inline">
+
                 	<input type="hidden" name="_token" value="{{ csrf_token()}}">
                 	<input type="hidden" name="idDocente" value="{{$docente[0]->id_docente}}">
                     <label for="nombre">Nombres:</label>
@@ -44,6 +45,28 @@
             							</select>
                         </div>
                     </div>	
+
+                     <label for="nombre">Tipo de Docente:</label>
+                      <div class="form-group">
+                        <div class="form-line">
+                            <select name="tipo_docente" class="form-control">
+                                @if($docente[0]->tipo_docente==0)
+                                    <option value="0" selected>Tiempo Completo</option>
+                                    <option value="1" >Medio Tiempo</option>
+                                    <option value="2" >Hora Clase</option>
+                                  @elseif($docente[0]->tipo_docente==1)
+                                    <option value="0" >Tiempo Completo</option>
+                                    <option value="1" selected>Medio Tiempo</option>
+                                    <option value="2" >Hora Clase</option>
+                                    
+                                  @else
+                                     <option value="2" selected>Hora Clase</option> 
+                                    <option value="0" >Tiempo Completo</option>
+                                    <option value="1" >Medio Tiempo</option>
+                                  @endif
+                            </select>
+                        </div>
+                    </div>  
 
 
         					<label for="nombre">Usuario:</label>

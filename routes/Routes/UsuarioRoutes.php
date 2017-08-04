@@ -37,5 +37,36 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['auth']], function()
 					'uses' => 'UsuarioController@edit'
 		]);	
 
+		Route::get('/reporteMarcacion', [
+		'as' => 'reporteMarcacion', 
+		'uses' => 'PdfController@generarReporte'
+		]);
+		
+		Route::post('/pdf', [
+			'as' => 'pdf', 
+			'uses' => 'PdfController@reportePorEmpleado'
+			]);
+		Route::get('/reporteAsis', [
+			'as' => 'reporteAsis', 
+			'uses' => 'PdfController@getReporteAsistencias'
+			]);
+		
+		Route::post('/asistenciasPdf', [
+			'as' => 'asistenciaPdf', 
+			'uses' => 'PdfController@reporteAsistencias'
+			]);
+		
+		Route::get('/all-marcaciones',[
+			'as' 	=> 'all.marcacion',
+			'uses' 	=> 'marcacionController@AllMarcaciones'
+	 	]);
+
+	Route::get('/getmarcaciones',[
+			'as' 	=> 'get.all.marcaciones',
+			'uses' 	=> 'marcacionController@getDataRowsMarcaciones'
+	 	]);
+	
+
+
 	});
 });

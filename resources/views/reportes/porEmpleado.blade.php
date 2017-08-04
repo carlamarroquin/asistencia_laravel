@@ -10,14 +10,13 @@
 
         </div>
       </div>
-      
       <table border="3px" cellspacing="2px" cellpadding="1px" width="100%">
         <thead>
         <tr>
             <th class="desc">Docente </th>
-            <th class="unit">Fecha</th>
-            <th class="total">Hora</th>
-            <th class="total">Tipo</th>
+            <th class="fecha">Fecha</th>
+            <th class="hora">Hora</th>
+            <th class="mar">Tipo Marcacion</th>
         </tr>
         </thead>
          @foreach($data as $d)

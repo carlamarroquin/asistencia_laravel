@@ -13,7 +13,12 @@ Route::group(['prefix' => 'calendar', 'middleware' => ['auth']], function(){
 			'uses' 	=> 'CalendarController@getEvents'
 	 	]);
 	
+	Route::post('/eventsMar',[
+			'as' 	=> 'events.marcaciones',
+			'uses' 	=> 'CalendarController@getMarcaciones'
+	 	]);
 	
+
 	
 
 });

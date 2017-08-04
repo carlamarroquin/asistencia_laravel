@@ -37,36 +37,24 @@
 <script>
 
 	$(function() { // document ready
-
+		var id={{Auth::user()->id}};
+	console.log(id);
 		$('#calendar').fullCalendar({
-			now: '2017-05-07',
-			editable: false,
-			aspectRatio: 2,
-			scrollTime: '00:00',
 			header: {
-				left: 'today prev,next',
+				left: 'prev,next today',
 				center: 'title',
-				right: 'timelineSevenDay,basicWeek,timelineMonth'
+				right: 'month,basicWeek,basicDay'
 			},
-			defaultView: 'timelineMonth',
-			views: {
-				timelineSevenDay: {
-					type: 'timeline',
-					duration: { days: 7 }
-				}
-			},
-			navLinks: true,
-			resourceAreaWidth: '20%',
-			resourceLabelText: 'Docentes',
-
-			resources: { 
-            	url: '{!! route('resources') !!}',
-				type: 'GET',
-                	
-			},
+			defaultDate: '2017-08-12',
+			navLinks: true, // can click day/week names to navigate views
+			editable: false,
+			eventLimit: true, // allow "more" link when too many events
+			
 			events:  { 
-            	url: '{!! route('events') !!}',
-				type: 'GET',
+            	url: '{!! route('events.marcaciones') !!}',
+            	data: { "id":id,
+            			"_token": "{{ csrf_token() }}" },
+				type: 'post',
                 	
 			}
 				

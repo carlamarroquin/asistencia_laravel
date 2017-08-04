@@ -11,7 +11,7 @@ class Docente extends Model
     protected $table='docente';
     protected $primaryKey='id_docente';
     
-    protected $fillable=['id_usuario','id_depto', 'nombre','apellidos','email','estado'];
+    protected $fillable=['id_usuario','id_depto', 'nombre','apellidos','email','estado','tipo_docente'];
     public $timestamps=false;
 
     

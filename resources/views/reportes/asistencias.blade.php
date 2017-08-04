@@ -14,18 +14,11 @@
         <thead>
         
         <tr>
-            <th rowspan="2">Docente</th>
-                @for($i=0; $i < 6; $i++)
-                 @for($j =0; $j < count($dias) ;$j++)
-                  <th>{{$dias[$j]}}</th>
-                 @endfor
-                @endfor 
-            <tr>
-                <th>1</th>
-                <th class="total">Total Asistencias</th>
+            <th >Docente</th> 
+            <th >Tipo Contratacion</th>   
+            <th class="total">Total Asistencias</th>
             <th class="total">% Asistencias</th>
         
-            </tr>
 
         </tr>
         </thead>

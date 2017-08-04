@@ -56,5 +56,18 @@ class marcacionController extends Controller
         })
         ->make(true);
     }
+
+    public function misMarcaciones(){
+        return view ('reportes.misMarcaciones');
+    }
+
+    public function getCalendario(){
+        $data=['title'=>'Generar Reporte de Marcación',
+                'subtitle'=>''];
+ 
+        return view('reportes.asistenciasCalendario');      
+    }
+
+
 }
 

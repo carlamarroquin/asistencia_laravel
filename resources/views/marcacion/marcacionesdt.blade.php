@@ -30,9 +30,12 @@
 	</div>
 @endif
 
-    <div class="card">
+  <div class="card row" style="padding: 2%;">
+   <h5>LISTADO DE MARCACION DE DOCENTES</h5>
+   
     <div class="table-responsive">
     <table class="table table-striped table-hover" id="dt-marcaciones" style="font-size:13px;" width="100%">
+
         <thead class="the-box dark full">
             <tr>
                 <th>CORRELATIVO</th>
