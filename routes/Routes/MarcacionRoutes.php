@@ -11,6 +11,11 @@ Route::group(['prefix' => 'docentes', 'middleware' => ['auth']], function(){
 	
     Route::get('/asistencias',[ 
         'as' => 'asistencias', 
+        'uses' => 'marcacionController@getAsistCalendario'
+        ]);
+
+    Route::get('/marcaciones',[ 
+        'as' => 'marcaciones', 
         'uses' => 'marcacionController@getCalendario'
         ]);
 

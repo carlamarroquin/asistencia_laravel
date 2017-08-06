@@ -65,9 +65,16 @@ class marcacionController extends Controller
         $data=['title'=>'Generar Reporte de Marcación',
                 'subtitle'=>''];
  
-        return view('reportes.asistenciasCalendario');      
+        return view('reportes.marcacionesCalendario');      
     }
 
+
+    public function getAsistCalendario(){
+        $data=['title'=>'Generar Reporte de Marcación',
+                'subtitle'=>''];
+        
+        return view('reportes.asistenciasCalendario');      
+    }
 
 }
 

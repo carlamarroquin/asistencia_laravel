@@ -19,6 +19,14 @@ Route::group(['prefix' => 'calendar', 'middleware' => ['auth']], function(){
 	 	]);
 	
 
-	
+	Route::post('/resourcesAsist',[
+			'as' 	=> 'resources.asistencias',
+			'uses' 	=> 'CalendarController@getAsistResources'
+	 	]);
+
+	Route::get('/eventsAsist',[
+			'as' 	=> 'events.asistencias',
+			'uses' 	=> 'CalendarController@getAsistEvents'
+	 	]);
 
 });
