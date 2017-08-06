@@ -87,9 +87,10 @@
 					field: 'total'
 				}
 			],
-			resources: function(callback) {
+			resources: function(callback,start, end, timezone) {
+				console.log(start.format());
 				$.ajax({
-		            data: {_token: '{{ csrf_token() }}',mes:month} ,
+		            data: {_token: '{{ csrf_token() }}',mes:start.format()} ,
 		            url:   "{{ route('resources.asistencias') }}",
 		            type:  'post',
 		            success:  function (r){
@@ -117,12 +118,14 @@
 		$('.fc-prev-button').click(function () {	
             var b = $('#calendar').fullCalendar('getDate');
             var date = new Date(b.format('L'));
+    		var month=date.getMonth();
     		console.log(date.getMonth());
         });
 
         $('.fc-next-button').click(function () {
             var b = $('#calendar').fullCalendar('getDate');
     		var date = new Date(b.format('L'));
+    		var month=date.getMonth();
 			console.log(date.getMonth());
         });
 	
