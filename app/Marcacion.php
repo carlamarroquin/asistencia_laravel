@@ -60,5 +60,15 @@ class Marcacion extends Model
         ->where('u.id',$idUsuario)->orderBy('mar.idMarcacion')
         ->get()->toArray();
   
-    }    
+    }  
+
+    public static function getHorasTrabajadasPorMes($idMes){
+        return DB::table('asistencia.horas_trab as vw')
+            ->join('asistencia.docente as d','vw.id_docente','=','d.id_docente')
+        	->select('vw.id_docente',Db::raw('CONCAT(d.nombre," ",d.apellidos) as nombre'),DB::raw("MONTH(vw.fecha) as mes"), 
+                DB::raw("SEC_TO_TIME(SUM(TIME_TO_SEC(vw.horas))) as horas"))
+        	->where(DB::raw("MONTH(vw.fecha)"),$idMes)
+            ->groupBy('vw.id_docente')
+            ->get()->toArray();
+        }  
 }
