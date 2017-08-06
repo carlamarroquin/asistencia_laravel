@@ -100,6 +100,7 @@ class UsuarioController extends Controller
         $docente->save();
          
         $usuario->usuario=$request->usuario;
+         $usuario->email=$request->email;
         $usuario->password=$request->password;
         $usuario->tipo=$request->tipo;
         $usuario->estado=$request->estado;
