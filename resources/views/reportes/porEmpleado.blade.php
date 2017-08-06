@@ -2,9 +2,10 @@
 
 <main>
       <div id="details" class="clearfix">
-        <div id="invoice">
-          <h4 align="center">UNIVERSIDAD DE EL SALVADOR<BR/>
-          FACULTAD DE INGENIERIA Y ARQUITECTURA ESCUELA  DE ARQUITECTURA<BR/>
+      <div class="media-left">
+        <img class="media-object" src="images/UES.jpg" width="100" height="100">
+          <h4 align="center" style="position: absolute;"> UNIVERSIDAD DE EL SALVADOR<BR/>
+           FACULTAD DE INGENIERIA Y ARQUITECTURA ESCUELA  DE ARQUITECTURA<BR/>
           ESCUELA DE ARQUITECTURA</h4>
           <h4 align="center">REPORTE DE MARCACIONES POR DOCENTE</h4>
 

@@ -16,12 +16,12 @@ use Hash;
 class UsuarioController extends Controller
 {
     public function store(UsuarioRequest $request){
-        
+       // dd($request);
         Usuario::create([
         'usuario'   =>$request['usuario'],
         'password'  =>Hash::make($request->password),
         'tipo'      =>$request['tipo'],
-        'correo'    =>$request['email']
+        'email'    =>$request['email']
         ]);
         
         $user=DB::table('usuario')->orderBy('id','desc')->first();

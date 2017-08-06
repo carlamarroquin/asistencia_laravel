@@ -11,7 +11,8 @@
     {{Session::get('message')}}
 </div>
 @endif
-
+<div class="card row" style="padding: 2%;">
+  
   <div class="table-responsive">
     <table class="table table-striped table-hover" id="docentes" style="font-size:13px;" width="100%">
         <thead class="the-box dark full">
@@ -31,6 +32,7 @@
         	@endforeach
     </table>
   </div><!-- /.table-responsive -->
+  </div>
  @endsection
 
 @section('js')
