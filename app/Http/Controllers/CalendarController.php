@@ -79,14 +79,17 @@ class CalendarController extends Controller
     public  function getAsistResources(Request $request){
     	//dd($request->all());
     	if($request->mes!=0){
+    		$time = strtotime($request->mes);
 
-	    	$docentes = Docente::get()->toArray();
+			$mes1 = (int)date('m',$time);
+			//dd((int)$mes1);
+    		$docentes=Marcacion::getHorasTrabajadasPorMes($mes1);
 			$resources = array();
-			//dd($docentes[0]);
+			
 			for($i=0;$i<count($docentes);$i++) {
-				$resources[$i]['id']=$docentes[$i]["id_docente"];
-				$resources[$i]['title']=$docentes[$i]["nombre"].' '.$docentes[$i]["apellidos"];
-				$resources[$i]['total']=(string)$request->mes;
+				$resources[$i]['id']=$docentes[$i]->id_docente;
+				$resources[$i]['title']=$docentes[$i]->nombre;
+				$resources[$i]['total']=$docentes[$i]->horas;
 			}
 			return $resources;
 		}
@@ -103,6 +106,7 @@ class CalendarController extends Controller
 			$events[$i]['start']=$marcaciones[$i]->fecha;
 			$events[$i]['end']=$marcaciones[$i]->fecha;
 			$events[$i]['title']=$marcaciones[$i]->horas;
+			$events[$i]['color']='#F6AA09';
 		}
 		return json_encode($events);
     }
