@@ -12,12 +12,20 @@
 		padding: 0;
 		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
 		font-size: 14px;
+		display: flex;
+		
+     	margin: 0 auto;
 	}
 
 	#calendar {
 		max-width: 900px;
-		margin: 50px auto;
+		margin: 30px auto;
 	}
+	
+	     
+}
+
+
 
 </style>
 
@@ -25,8 +33,10 @@
 
 @section('content')
 <div name="content">
+
 <div id='calendar'></div>
 </div>
+
 @endsection
 
 @section('js')
@@ -35,11 +45,21 @@
 	{!! Html::script('plugins/fullcalendar-scheduler/fullcalendar.min.js') !!}
 	{!! Html::script('plugins/fullcalendar-scheduler/scheduler.min.js') !!}
 <script>
+	
+	var date = new Date();
+	
+	var month=date.getMonth()+1;
+	
+	var resourcesArray;
+	
+	$(document).ready(function () {// document ready
+		
+		
 
-	$(function() { // document ready
 
 		$('#calendar').fullCalendar({
-			now: '2017-05-07',
+			refetchResourcesOnNavigate: true,
+			now: moment(),
 			editable: false,
 			aspectRatio: 2,
 			scrollTime: '00:00',
@@ -56,23 +76,59 @@
 				}
 			},
 			navLinks: true,
-			resourceAreaWidth: '20%',
-			resourceLabelText: 'Docentes',
-
-			resources: { 
-            	url: '{!! route('resources') !!}',
-				type: 'GET',
-                	
+			resourceAreaWidth: '25%',
+			resourceColumns: [
+				{
+					labelText: 'Docentes',
+					field: 'title'
+				},
+				{
+					labelText: 'Total',
+					field: 'total'
+				}
+			],
+			resources: function(callback) {
+				$.ajax({
+		            data: {_token: '{{ csrf_token() }}',mes:month} ,
+		            url:   "{{ route('resources.asistencias') }}",
+		            type:  'post',
+		            success:  function (r){
+		               console.log(r);
+		               resourcesArray=r;
+		               callback(r);
+		            },
+		            error: function(data){
+		                // Error...
+		                var errors = $.parseJSON(data.responseText);
+		                console.log(errors);
+		            }
+		        });
+    			
 			},
 			events:  { 
-            	url: '{!! route('events') !!}',
+            	url: '{!! route('events.asistencias') !!}',
 				type: 'GET',
                 	
 			}
 				
 		});
+
+
+		$('.fc-prev-button').click(function () {	
+            var b = $('#calendar').fullCalendar('getDate');
+            var date = new Date(b.format('L'));
+    		console.log(date.getMonth());
+        });
+
+        $('.fc-next-button').click(function () {
+            var b = $('#calendar').fullCalendar('getDate');
+    		var date = new Date(b.format('L'));
+			console.log(date.getMonth());
+        });
 	
 	});
+
+
 
 </script>
 

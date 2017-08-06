@@ -69,7 +69,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('reporteAsis')}}">
+                                <a href="{{route('asistencias')}}">
                                     <i class="material-icons">query_builder</i>
                                     <span>Reporte Asistencias</span>
                                 </a>
@@ -81,9 +81,9 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('asistencias')}}">
+                                <a href="{{route('marcaciones')}}">
                                     <i class="material-icons">query_builder</i>
-                                    <span>Reporte de asistencias</span>
+                                    <span>Reporte de marcaciones</span>
                                 </a>
                             </li>
                         </ul>
