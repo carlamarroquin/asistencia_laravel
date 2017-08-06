@@ -66,7 +66,7 @@
 			header: {
 				left: 'today prev,next',
 				center: 'title',
-				right: 'timelineSevenDay,basicWeek,timelineMonth'
+				right: 'timelineMonth'
 			},
 			defaultView: 'timelineMonth',
 			views: {

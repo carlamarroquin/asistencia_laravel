@@ -106,6 +106,7 @@ class CalendarController extends Controller
 			$events[$i]['start']=$marcaciones[$i]->fecha;
 			$events[$i]['end']=$marcaciones[$i]->fecha;
 			$events[$i]['title']=$marcaciones[$i]->horas;
+			$events[$i]['color']='#F6AA09';
 		}
 		return json_encode($events);
     }
