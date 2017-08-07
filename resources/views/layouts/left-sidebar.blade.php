@@ -86,6 +86,12 @@
                                     <span>Reporte de marcaciones</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{route('reporteAsis')}}">
+                                    <i class="material-icons">query_builder</i>
+                                    <span>Informe</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 

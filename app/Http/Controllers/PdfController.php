@@ -64,20 +64,19 @@ class PdfController extends Controller
 
 	}
 
-	public function reporteAsistencias(){
-		$data=$this->getAsistencias();
-		//$view=\View::make('invoice',compact('data','invoice'))->render();
-		//$pdf=\App::make('dompdf.wrapper');
-
-		//$diaInicio=$this->getPrimerDia($mes);
-		$dias=['L','M','M','J','V','S','D'];
-		$pdf=PDF::loadView('reportes.asistencias',['data'=>$data,'dias'=>$dias]);
+	public function reporteAsistencias(Request $request){
+		$data=$this->getAsistencias($request->mes);
+		
+		$pdf=PDF::loadView('reportes.asistencias',['data'=>$data]);
 		$pdf->setPaper('Legal', 'landscape');
-		return $pdf->stream('pruebapdf.pdf');
+		return $pdf->stream('informe.pdf');
 	}
 
 	
-	
+	public function getAsistencias($idMes){
+		$mar=Marcacion::getDiasTrabajados($idMes);
+		return $mar;
+	}
 
 	
 

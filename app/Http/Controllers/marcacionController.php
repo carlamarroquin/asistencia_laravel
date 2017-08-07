@@ -76,5 +76,6 @@ class marcacionController extends Controller
         return view('reportes.asistenciasCalendario');      
     }
 
+    
 }
 
