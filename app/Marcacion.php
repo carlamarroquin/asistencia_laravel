@@ -48,7 +48,7 @@ class Marcacion extends Model
         return DB::table('asistencia.horas_trab as vw')
         ->select('vw.id_docente', 'vw.fecha', 
             DB::raw("SEC_TO_TIME(SUM(TIME_TO_SEC(vw.horas))) as horas"))
-            ->groupBy('vw.fecha')
+            ->groupBy('vw.fecha','vw.id_docente')
             ->get()->toArray();
         }
 
